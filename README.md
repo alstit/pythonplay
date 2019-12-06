@@ -4,6 +4,11 @@ python play is a small onpenCV program which aim to drive cars according to a vi
 
 Now video input is taken from a game which run windowed. 
 
+
+run pyhton -m pip install -r setup to automatically install requiered packages
+
+
+
 place the game windows in the upper left of the screen, and lauch screen.py. 
 
 I have been doing tests with Dirt Rally and Copa Petrobras de Marcas which is free on steam by the way
