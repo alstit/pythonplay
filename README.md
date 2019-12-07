@@ -24,6 +24,11 @@ pyhton -m pip install -r setup to automatically install requiered packages
 
 python car.py
 
+dont forget to install Vjoy :  http://vjoystick.sourceforge.net/site/index.php/download-a-install/download
+and pyvjoy : https://github.com/tidzo/pyvjoy
+by yourself
+
+
 you can change server addresse directly in python code. 
 
 
