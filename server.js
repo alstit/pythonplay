@@ -43,13 +43,13 @@ app.post('/uploadfile', upload.single('myFile'), (req, res, next) => {
 		
 });
 
-app.get("/processedimage",function(req,res)
+/*app.get("/processedimage",function(req,res)
 {	
 	const pythonProcess = spawn('python',["./process.py","./uploads/" ]);
 	pythonProcess.stdout.on('data', function(data) { 
         res.send(data.toString());
     }) ;
-});
+});*/
 
 
 
