@@ -9,56 +9,39 @@ const spawn = require("child_process").spawn;
 
 const app = express();
 
+//SET STORAGE
+// var storage = multer.diskStorage({
+  // destination: function (req, file, cb) {
+    // cb(null, 'uploads')
+  // },
+  // filename: function (req, file, cb) {
+    ////cb(null, Date.now() + path.extname(file.originalname));
+	// cb(null, "input.png");
+  // }
+// })
 
+var storage = multer.memoryStorage()
 
-app.get('/',function(req,res)
-{
-	console.log("rest is success");
-	res.sendFile(__dirname + "/index.html");
-});
-
-// SET STORAGE
-var storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, 'uploads')
-  },
-  filename: function (req, file, cb) {
-    //cb(null, Date.now() + path.extname(file.originalname));
-	cb(null, "input.png");
-  }
-})
  
 var upload = multer({ storage: storage })
 
-
-
-
-
-
 app.post('/uploadfile', upload.single('myFile'), (req, res, next) => {
-console.log("rest api sucessful");	
-  const file = req.file
-  if (!file) {
-    const error = new Error('Please upload a file')
-    error.httpStatusCode = 400
-    return next(error)
-  }
-  
-    //res.send(file)
+	console.log(req.file.buffer);
 	
-	console.log("ready to python ");
-	console.log(upload.storage["filename"]);
-	const pythonProcess = spawn('python',["./process.py","./uploads/" + "input.png"]);
+	const pythonProcess = spawn('python',["./process.py"]);
+	pythonProcess.stdin.write(req.file.buffer);
+	pythonProcess.stdin.end();
+	
+	pythonProcess.stderr.on('data',function(data)
+	{
+		console.log(data.toString());
+	});
+	
 	pythonProcess.stdout.on('data', function(data) { 
-        res.send(data.toString());
+        res.end(data);
     }) ;
-	
-
+		
 });
-
-
-
-
 
 app.get("/processedimage",function(req,res)
 {	
