@@ -12,14 +12,15 @@ you can access the direction vector by request.content after a POST request.
 
 A try to use Nodejs as a REST API to run python commands on a serveur
 
+USAGE:
 
-
-USAGE: 
 npm install
 node server.js
 
 go to your client device
+
 pyhton -m pip install -r setup to automatically install requiered packages
+
 python car.py
 
 you can change server addresse directly in python code. 
