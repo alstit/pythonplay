@@ -15,6 +15,7 @@ A try to use Nodejs as a REST API to run python commands on a serveur
 USAGE:
 
 npm install
+
 node server.js
 
 go to your client device
