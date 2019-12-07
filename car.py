@@ -12,8 +12,7 @@ import win32gui, win32ui, win32con, win32api
 import sys
 from datetime  import datetime
 
-def drive(direction,j):
-    inv_direction = direction
+def drive(inv_direction,j):
     inv_direction = int((inv_direction)*16384+16384)
    
     print(inv_direction)
