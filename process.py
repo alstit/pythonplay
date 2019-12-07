@@ -1,9 +1,4 @@
 import sys 
-# Takes first name and last name via command  
-# line arguments and then display them 
-
- 
-  
 import numpy as np
 from PIL import Image
 import cv2
